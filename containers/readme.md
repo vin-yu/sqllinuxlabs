@@ -278,6 +278,8 @@ nano ./mssql-aspcore-example-db/db-init.sh
 
 ![db-sh.PNG](/Media/Container-db-sh.png)
 
+>note: Enusure that you do not have `mssql-aspcore-example_db` or `mssql-aspcore-example_web` in your docker images. You can check if these images exist with `sudo docker image ls`
+
 4. Run the containers with docker-compose:
 ```
 sudo docker-compose up
@@ -285,14 +287,16 @@ sudo docker-compose up
 >note: this will take approx. 15 seconds
 
 
-5. At this point, you will have two containers up and running: an application container that is able to query the database container. Connect to the 
+5. At this point, you will have two containers up and running: an application container that is able to query the database container. Connect to the host:5000 in the broswer. 
 
 ```
-http:<host IP>:5000
+<host IP>:5000
 ```
 >Note: If you are running this in an Azure VM, the host IP is the Azure VM Public IP. You will also need to open port 5000 external traffic. [go here to learn how to open ports in Azure VMs](/open_azure_vm_port)
 
 ![DockerComposeUp.PNG](/Media/Container-DockerComposeUp.png)
+
+>Note: You may need to change users once to start seeing the data in the applicaiton
 
 To stop the docker compose application, press `ctrl + c` in the terminal. 
 To remove the containers run the following command:
